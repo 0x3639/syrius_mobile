@@ -80,5 +80,13 @@
         <key>NSAllowsArbitraryLoadsInWebContent</key>
         <true/>
     </dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to your photo library to save and share QR codes.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs camera access to scan QR codes.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>This app uses Face ID to securely authenticate you.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app needs permission to save QR codes to your photo library.</string>
 </dict>
 </plist>
