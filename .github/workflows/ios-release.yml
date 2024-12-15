@@ -47,6 +47,7 @@ jobs:
       - name: Build IPA
         run: |
           flutter build ipa --release --export-method app-store --verbose
+          ls -la build/ios/ipa/  # Let's see what files are actually created
 
       - name: Verify IPA Creation
         run: |
