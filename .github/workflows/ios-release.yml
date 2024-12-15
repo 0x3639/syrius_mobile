@@ -50,12 +50,18 @@ jobs:
 
       - name: Check IPA location
         run: |
-          echo "Checking IPA location..."
-          ls -R build/ios/ipa/
+          echo "Checking all possible IPA locations..."
+          echo "Checking build/ios/ipa/"
+          ls -R build/ios/ipa/ || true
+          echo "Checking build/ios/archive/"
+          ls -R build/ios/archive/ || true
+          echo "Checking build/ios/"
+          ls -R build/ios/ || true
 
       - name: Upload to TestFlight
         env:
           APP_STORE_CONNECT_API_KEY_FILE: ${{ secrets.APP_STORE_CONNECT_API_KEY_FILE }}
+          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
         run: |
           # Create private_keys directory
           mkdir -p ~/.private_keys
@@ -67,7 +73,7 @@ jobs:
           chmod 600 ~/.private_keys/AuthKey_${APP_STORE_CONNECT_API_KEY}.p8
           
           # Upload using key file
-          xcrun altool --upload-app -f build/ios/ipa/Syrius.ipa -t ios \
+          xcrun altool --upload-app -f build/ios/archive/Runner.ipa -t ios \
             --apiKey "${{ secrets.APP_STORE_CONNECT_API_KEY }}" \
             --apiIssuer "${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}"
           
