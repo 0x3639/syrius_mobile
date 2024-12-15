@@ -48,6 +48,11 @@ jobs:
         run: |
           flutter build ipa --release
 
+      - name: Check IPA location
+        run: |
+          echo "Checking IPA location..."
+          ls -R build/ios/ipa/
+
       - name: Upload to TestFlight
         env:
           APP_STORE_CONNECT_API_KEY_FILE: ${{ secrets.APP_STORE_CONNECT_API_KEY_FILE }}
@@ -56,16 +61,15 @@ jobs:
           mkdir -p ~/.private_keys
 
           # Decode and save key with correct name
-          echo "$APP_STORE_CONNECT_API_KEY_FILE" | base64 --decode > ~/.private_keys/AuthKey_A9R62983BW.p8
+          echo "$APP_STORE_CONNECT_API_KEY_FILE" | base64 --decode > ~/.private_keys/AuthKey_${APP_STORE_CONNECT_API_KEY}.p8
           
           # Set permissions
-          chmod 600 ~/.private_keys/AuthKey_A9R62983BW.p8
+          chmod 600 ~/.private_keys/AuthKey_${APP_STORE_CONNECT_API_KEY}.p8
           
           # Upload using key file
           xcrun altool --upload-app -f build/ios/ipa/Syrius.ipa -t ios \
             --apiKey "${{ secrets.APP_STORE_CONNECT_API_KEY }}" \
-            --apiIssuer "${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}" \
-            --apiKeyPath /tmp/auth_key.p8
+            --apiIssuer "${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}"
           
           # Clean up
           rm /tmp/auth_key.p8
