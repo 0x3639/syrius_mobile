@@ -73,7 +73,7 @@ jobs:
           chmod 600 ~/.private_keys/AuthKey_${APP_STORE_CONNECT_API_KEY}.p8
           
           # Upload using key file
-          xcrun altool --upload-app -f build/ios/archive/Runner.ipa -t ios \
+          xcrun altool --upload-app -f build/ios/archive/Runner.xcarchive/Products/Applications/Runner.app -t ios \
             --apiKey "${{ secrets.APP_STORE_CONNECT_API_KEY }}" \
             --apiIssuer "${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}"
           
