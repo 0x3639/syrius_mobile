@@ -77,7 +77,7 @@ jobs:
           EOF
 
       - name: Build IPA
-        run: flutter build ipa --release --export-options-plist=ios/Runner/ExportOptions.plist --verbose
+        run: flutter build ipa --release --export-options-plist=ios/Runner/ExportOptions.plist
 
       - name: Verify IPA Creation
         run: |
