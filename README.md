@@ -113,3 +113,43 @@ pod install
 cd ..
 ```
 
+## Release Process
+
+### Version Management and Deployment
+
+1. **Update Version**
+   - Edit `pubspec.yaml`
+   - Increment version number (e.g., from `1.0.6` to `1.0.7`)
+   - Format: `MAJOR.MINOR.PATCH`
+
+2. **Create Git Tag**
+```bash
+# Commit version change
+git add pubspec.yaml
+git commit -m "bump version to 1.0.7"
+
+# Create and push tag
+git tag v1.0.7
+git push origin v1.0.7
+```
+
+3. **Automated Deployment**
+   - Pushing a tag starting with 'v' triggers:
+     - iOS build and TestFlight upload
+     - Android build and Play Store internal testing upload
+     - GitHub release creation with APKs
+   - Version in tag must match `pubspec.yaml`
+   - Example: tag `v1.0.7` matches version `1.0.7` in pubspec.yaml
+
+### Version Guidelines
+- MAJOR: Breaking changes
+- MINOR: New features, backwards compatible
+- PATCH: Bug fixes and minor updates
+- Always prefix tags with 'v' (e.g., `v1.0.7`)
+
+### Deployment Verification
+1. Check GitHub Actions for build status
+2. Verify TestFlight for iOS build
+3. Verify Play Store Internal Testing for Android build
+4. Test on both platforms before promoting to production
+
