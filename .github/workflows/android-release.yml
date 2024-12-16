@@ -114,7 +114,7 @@ jobs:
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJson: service-account.json
-          packageName: network.zenon.syrius.mobile
+          packageName: ${{ secrets.BUNDLE_ID }}
           releaseFiles: ${{ env.AAB_PATH }}
           track: internal
           status: completed
