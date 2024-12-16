@@ -53,6 +53,9 @@ jobs:
       - name: Decode Key Properties
         run: echo "${{ secrets.ANDROID_KEY_PROPERTIES }}" | base64 --decode > ${{ env.KEY_PROPS_PATH }}
 
+      - name: Install dependencies
+        run: flutter pub get
+
       - name: Create local.properties
         run: |
           VERSION=$(cat pubspec.yaml | grep version: | sed 's/version: //' | xargs)
@@ -70,9 +73,6 @@ jobs:
           } > ${{ env.LOCAL_PROPS_PATH }}
           echo "Content of local.properties:"
           cat ${{ env.LOCAL_PROPS_PATH }}
-
-      - name: Install dependencies
-        run: flutter pub get
 
       - name: Build APK split per ABI
         env:
