@@ -71,10 +71,10 @@ jobs:
       - name: Build APK split per ABI
         env:
           GRADLE_OPTS: "-Dorg.gradle.daemon=true -Dorg.gradle.configureondemand=true -Dorg.gradle.parallel=true -Dorg.gradle.caching=true -Dkotlin.incremental=false"
-        run: flutter build apk --release --target-platform android-arm64,android-x64 --split-per-abi -- -Pversion_code=$VERSION_CODE -Pversion_name=$VERSION
+        run: flutter build apk --release --target-platform android-arm64,android-x64 --split-per-abi --build-name=$VERSION --build-number=$VERSION_CODE
 
       - name: Build APK universal
-        run: flutter build apk --release -- -Pversion_code=$VERSION_CODE -Pversion_name=$VERSION
+        run: flutter build apk --release --build-name=$VERSION --build-number=$VERSION_CODE
       
       - name: Copy to releases directory
         run: |
@@ -98,7 +98,7 @@ jobs:
           overwrite: true
 
       - name: Build App Bundle
-        run: flutter build appbundle --release -- -Pversion_code=$VERSION_CODE -Pversion_name=$VERSION
+        run: flutter build appbundle --release --build-name=$VERSION --build-number=$VERSION_CODE
 
       - name: Setup Play Store Config
         run: |
