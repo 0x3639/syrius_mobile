@@ -11,6 +11,9 @@ if (localPropertiesFile.exists()) {
     localPropertiesFile.withReader('UTF-8') { reader ->
         localProperties.load(reader)
     }
+    // Add debug output
+    println "Flutter Version Code from local.properties: ${localProperties.getProperty('flutter.versionCode')}"
+    println "Flutter Version Name from local.properties: ${localProperties.getProperty('flutter.versionName')}"
 }
 
 def keystoreProperties = new Properties()
