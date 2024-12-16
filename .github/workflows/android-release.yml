@@ -70,9 +70,15 @@ jobs:
 
       - name: Build APK split per ABI
         env:
-          GRADLE_OPTS: "-Dorg.gradle.daemon=true -Dorg.gradle.configureondemand=true -Dorg.gradle.parallel=true -Dorg.gradle.caching=true -Dkotlin.incremental=false"
-        run: flutter build apk --release --target-platform android-arm64,android-x64 --split-per-abi --build-name=$VERSION --build-number=$VERSION_CODE
-
+          GRADLE_OPTS: "-Dorg.gradle.daemon=true -Dorg.gradle.configureondemand=true -Dorg.gradle.parallel=true -Dorg.gradle.caching=false"
+        run: |
+          flutter clean
+          flutter build apk --release \
+            --target-platform android-arm64,android-x64 \
+            --split-per-abi \
+            --build-name=$VERSION \
+            --build-number=$VERSION_CODE
+            
       - name: Build APK universal
         run: flutter build apk --release --build-name=$VERSION --build-number=$VERSION_CODE
       
