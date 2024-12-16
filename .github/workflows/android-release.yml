@@ -46,6 +46,18 @@ jobs:
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
+      - name: Set Version Variables
+        run: |
+          VERSION=$(cat pubspec.yaml | grep version: | sed 's/version: //' | xargs)
+          MAJOR=$(echo $VERSION | cut -d. -f1)
+          MINOR=$(echo $VERSION | cut -d. -f2)
+          PATCH=$(echo $VERSION | cut -d. -f3)
+          VERSION_CODE=$((MAJOR * 10000 + MINOR * 100 + PATCH))
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "VERSION_CODE=$VERSION_CODE" >> $GITHUB_ENV
+          echo "Version code will be: $VERSION_CODE"
+          echo "Version name will be: $VERSION"
+
       # Decode our secrets
       - name: Decode Keystore
         run: echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > ${{ env.KEYSTORE_PATH }}
@@ -56,31 +68,13 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Create local.properties
-        run: |
-          VERSION=$(cat pubspec.yaml | grep version: | sed 's/version: //' | xargs)
-          MAJOR=$(echo $VERSION | cut -d. -f1)
-          MINOR=$(echo $VERSION | cut -d. -f2)
-          PATCH=$(echo $VERSION | cut -d. -f3)
-          VERSION_CODE=$((MAJOR * 10000 + MINOR * 100 + PATCH))
-          echo "Version code will be: $VERSION_CODE" # Debug output
-          # Create file from scratch with all required properties
-          {
-            echo "flutter.versionCode=${VERSION_CODE}"
-            echo "flutter.versionName=${VERSION}"
-            echo "sdk.dir=/usr/local/lib/android/sdk"
-            echo "flutter.sdk=/opt/hostedtoolcache/flutter/stable-3.24.5-x64"
-          } > ${{ env.LOCAL_PROPS_PATH }}
-          echo "Content of local.properties:"
-          cat ${{ env.LOCAL_PROPS_PATH }}
-
       - name: Build APK split per ABI
         env:
           GRADLE_OPTS: "-Dorg.gradle.daemon=true -Dorg.gradle.configureondemand=true -Dorg.gradle.parallel=true -Dorg.gradle.caching=true -Dkotlin.incremental=false"
-        run: flutter build apk --release --target-platform android-arm64,android-x64 --split-per-abi
+        run: flutter build apk --release --target-platform android-arm64,android-x64 --split-per-abi -- -Pversion_code=$VERSION_CODE -Pversion_name=$VERSION
 
       - name: Build APK universal
-        run: flutter build apk --release
+        run: flutter build apk --release -- -Pversion_code=$VERSION_CODE -Pversion_name=$VERSION
       
       - name: Copy to releases directory
         run: |
@@ -104,7 +98,7 @@ jobs:
           overwrite: true
 
       - name: Build App Bundle
-        run: flutter build appbundle --release
+        run: flutter build appbundle --release -- -Pversion_code=$VERSION_CODE -Pversion_name=$VERSION
 
       - name: Setup Play Store Config
         run: |
