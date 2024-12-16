@@ -85,10 +85,14 @@ jobs:
       - name: Build App Bundle
         run: flutter build appbundle --release
 
+      - name: Setup Play Store Config
+        run: |
+          echo '${{ secrets.PLAY_STORE_CONFIG_JSON }}' > service-account.json
+
       - name: Upload to Play Store
         uses: r0adkll/upload-google-play@v1
         with:
-          serviceAccountJson: ${{ secrets.PLAY_STORE_CONFIG_JSON }}
+          serviceAccountJson: service-account.json
           packageName: ${{ secrets.ANDROID_APP_NAME }}
           releaseFiles: ${{ env.AAB_PATH }}
           track: internal
