@@ -15,7 +15,6 @@ jobs:
       AAB_PATH: build/app/outputs/bundle/release/app-release.aab
       KEYSTORE_PATH: android/upload-keystore.jks
       KEY_PROPS_PATH: android/key.properties
-      LOCAL_PROPS_PATH: android/local.properties
 
     steps:
       - name: Checkout repository
@@ -117,4 +116,4 @@ jobs:
           packageName: network.zenon.syrius.mobile
           releaseFiles: ${{ env.AAB_PATH }}
           track: internal
-          status: draft
+          status: draft # change to completed once we are officially live with first release
