@@ -63,7 +63,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "tortcher.syrius.mobile"
+        applicationId "network.zenon.syrius.mobile"
         targetSdkVersion 34
         minSdkVersion 24
         ndkVersion '21.2.6472646'
