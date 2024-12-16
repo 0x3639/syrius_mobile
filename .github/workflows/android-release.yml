@@ -117,4 +117,4 @@ jobs:
           packageName: network.zenon.syrius.mobile
           releaseFiles: ${{ env.AAB_PATH }}
           track: internal
-          status: completed
+          status: draft
