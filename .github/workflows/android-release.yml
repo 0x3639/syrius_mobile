@@ -56,15 +56,17 @@ jobs:
       - name: Create local.properties
         run: |
           VERSION=$(cat pubspec.yaml | grep version: | sed 's/version: //' | xargs)
-          # Convert semantic version (e.g., 1.0.8) to version code (e.g., 10008)
+          # Convert semantic version (e.g., 1.0.11) to version code (e.g., 10011)
           MAJOR=$(echo $VERSION | cut -d. -f1)
           MINOR=$(echo $VERSION | cut -d. -f2)
           PATCH=$(echo $VERSION | cut -d. -f3)
           VERSION_CODE=$((MAJOR * 10000 + MINOR * 100 + PATCH))
+          echo "Version code will be: $VERSION_CODE" # Debug output
           echo "flutter.versionCode=$VERSION_CODE" > ${{ env.LOCAL_PROPS_PATH }}
           echo "flutter.versionName=$VERSION" >> ${{ env.LOCAL_PROPS_PATH }}
           echo "sdk.dir=/usr/local/lib/android/sdk" >> ${{ env.LOCAL_PROPS_PATH }}
           echo "flutter.sdk=/opt/hostedtoolcache/flutter/stable-3.24.5-x64" >> ${{ env.LOCAL_PROPS_PATH }}
+          cat ${{ env.LOCAL_PROPS_PATH }} # Debug output
 
       - name: Install dependencies
         run: flutter pub get
