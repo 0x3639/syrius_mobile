@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:big_decimal/big_decimal.dart';
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/blocs/blocs.dart';
 import 'package:syrius_mobile/btc/bitcoin_utils.dart';
 import 'package:syrius_mobile/database/export.dart';

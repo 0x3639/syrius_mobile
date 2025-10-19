@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/blocs/blocs.dart';
 import 'package:syrius_mobile/blocs/transfer/eth_send_transaction_bloc.dart';
 import 'package:syrius_mobile/database/export.dart';

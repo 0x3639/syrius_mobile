@@ -1,7 +1,7 @@
 import 'package:big_decimal/big_decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/widgets/reusable_widgets/buttons/syrius_filled_button.dart';
 import 'package:syrius_mobile/widgets/reusable_widgets/custom_appbar_screen.dart';
 

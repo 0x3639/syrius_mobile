@@ -7,7 +7,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_portal/flutter_portal.dart';
 import 'package:flutterlifecyclehooks/flutterlifecyclehooks.dart';
@@ -23,6 +22,7 @@ import 'package:syrius_mobile/btc/bitcoin_service.dart';
 import 'package:syrius_mobile/database/export.dart';
 import 'package:syrius_mobile/eth_support/ethereum_service.dart';
 import 'package:syrius_mobile/l10n/all_locales.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/screens/screens.dart';
 import 'package:syrius_mobile/services/services.dart';
 import 'package:syrius_mobile/services/syrius_navigator_observer.dart';
@@ -313,7 +313,7 @@ class MyAppState extends State<MyApp> with LifecycleMixin {
           elevation: 0.0,
           scrolledUnderElevation: 0.0,
         ),
-        cardTheme: const CardTheme(
+        cardTheme: const CardThemeData(
           margin: EdgeInsets.zero,
         ),
         chipTheme: ChipThemeData(
@@ -369,7 +369,7 @@ class MyAppState extends State<MyApp> with LifecycleMixin {
             ),
           ),
         ),
-        tabBarTheme: const TabBarTheme(
+        tabBarTheme: const TabBarThemeData(
           dividerHeight: 0.0,
         ),
         textTheme: context.textTheme.apply(

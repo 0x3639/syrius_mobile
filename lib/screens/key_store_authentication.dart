@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:logging/logging.dart';
 import 'package:syrius_mobile/main.dart';
 import 'package:syrius_mobile/services/services.dart';

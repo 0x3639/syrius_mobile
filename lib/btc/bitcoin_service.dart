@@ -32,6 +32,7 @@ class BitcoinService {
         transactions: "$explorerApiBaseUrl/address/###/txs",
         network: appNetwork.bitcoinBaseNetwork,
         blockHeight: "$explorerApiBaseUrl/block-height/###",
+        latestBlockHeight: explorerApiBaseUrl,
       );
 
       /// Define http provider and api provider

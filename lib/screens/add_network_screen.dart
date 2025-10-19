@@ -2,7 +2,7 @@ import 'package:drift/drift.dart' hide Column;
 import 'package:drift/isolate.dart';
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/database/app_network_asset_entries.dart';
 import 'package:syrius_mobile/database/export.dart';
 import 'package:syrius_mobile/main.dart';

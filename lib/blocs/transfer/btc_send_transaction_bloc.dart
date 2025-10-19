@@ -1,6 +1,6 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/blocs/blocs.dart';
 import 'package:syrius_mobile/database/export.dart';
 import 'package:syrius_mobile/main.dart';
@@ -110,9 +110,9 @@ class BtcSendTransactionBloc extends BaseBloc<String> {
       final BtcTransaction transaction =
           builder.buildTransaction((trDigest, utxo, publicKey, sighash) {
         if (utxo.utxo.isP2tr) {
-          return senderPrivate.signTapRoot(trDigest, sighash: sighash);
+          return senderPrivate.signBip340(trDigest, sighash: sighash);
         }
-        return senderPrivate.signInput(trDigest, sigHash: sighash);
+        return senderPrivate.signECDSA(trDigest, sighash: sighash);
       });
 
       final String raw = transaction.serialize();

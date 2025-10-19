@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/model/model.dart';
 import 'package:syrius_mobile/utils/constants.dart';
 import 'package:syrius_mobile/utils/extensions/list_separator.dart';
