@@ -49,7 +49,7 @@ android {
         applicationId "network.zenon.syrius.mobile"
         targetSdkVersion 36
         minSdkVersion 24
-        ndkVersion '27.0.12077973'
+        ndkVersion '26.0.10792818'
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true

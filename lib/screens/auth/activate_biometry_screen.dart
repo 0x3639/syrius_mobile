@@ -1,11 +1,10 @@
 import 'dart:io';
 
-import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:logging/logging.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/main.dart';
 import 'package:syrius_mobile/services/authentication_service.dart';
 import 'package:syrius_mobile/utils/utils.dart';
@@ -141,9 +140,7 @@ class _ActivateBiometryScreenState extends State<ActivateBiometryScreen> {
           final bool canAuthenticate = await auth.isDeviceSupported();
           if (canAuthenticate) {
             if (await _userAuthenticated(
-              options: const AuthenticationOptions(
-                biometricOnly: true,
-              ),
+              biometricOnly: true,
             )) {
               if (!mounted) return;
               showLoadingDialog(context);
@@ -186,13 +183,13 @@ class _ActivateBiometryScreenState extends State<ActivateBiometryScreen> {
   }
 
   Future<bool> _userAuthenticated({
-    AuthenticationOptions options = const AuthenticationOptions(),
+    bool biometricOnly = false,
   }) async {
     bool didAuthenticate = false;
     try {
       didAuthenticate = await auth.authenticate(
         localizedReason: AppLocalizations.of(context)!.authenticationRequired,
-        options: options,
+        biometricOnly: biometricOnly,
       );
     } on PlatformException catch (e, stackTrace) {
       Logger('ActivateBiometryPage')
@@ -215,9 +212,8 @@ class _ActivateBiometryScreenState extends State<ActivateBiometryScreen> {
       btn1Text: AppLocalizations.of(context)!.continueButton,
       btn1Action: () {
         Navigator.pop(context);
-        AppSettings.openAppSettings(
-          type: AppSettingsType.security,
-        );
+
+        // TODO: open security system settings
       },
     );
   }
