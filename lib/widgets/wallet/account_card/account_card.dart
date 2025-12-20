@@ -225,7 +225,11 @@ class ReceiveModalBottomSheet extends StatelessWidget {
           ),
           label: Text(AppLocalizations.of(context)!.shareAddress),
           onPressed: () async {
-            await Share.share(selectedAddress.hex);
+            await SharePlus.instance.share(
+              ShareParams(
+                text: selectedAddress.hex,
+              ),
+            );
           },
         ),
       ].addSeparator(kVerticalSpacer),

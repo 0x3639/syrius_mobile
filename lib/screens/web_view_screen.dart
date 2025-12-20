@@ -160,7 +160,13 @@ class _WebViewScreenState extends State<WebViewScreen>
                     ? () {
                         if (!_isSharing) {
                           _isSharing = true;
-                          Share.share(_url).then((_) => _isSharing = false);
+                          SharePlus.instance
+                              .share(
+                                ShareParams(
+                                  uri: Uri.parse(_url),
+                                ),
+                              )
+                              .then((_) => _isSharing = false);
                         }
                       }
                     : null;
@@ -369,9 +375,7 @@ class _WebViewScreenState extends State<WebViewScreen>
         );
       },
       initialOptions: InAppWebViewGroupOptions(
-        android: AndroidInAppWebViewOptions(
-          
-        ),
+        android: AndroidInAppWebViewOptions(),
         crossPlatform: InAppWebViewOptions(
           useShouldOverrideUrlLoading: true,
         ),
