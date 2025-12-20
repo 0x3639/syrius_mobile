@@ -35,16 +35,19 @@ class NumericVirtualKeyboardItem extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return IconButton(
-      onPressed: isEnabled
-          ? () {
-              HapticFeedback.lightImpact();
-              tapped(index);
-            }
-          : null,
-      icon: isBack
-          ? _buildBackspaceKey(context)
-          : (isThumb ? _buildBiometryKey(context) : _buildNumericKey(context)),
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: IconButton(
+        onPressed: isEnabled
+            ? () {
+                HapticFeedback.lightImpact();
+                tapped(index);
+              }
+            : null,
+        icon: isBack
+            ? _buildBackspaceKey(context)
+            : (isThumb ? _buildBiometryKey(context) : _buildNumericKey(context)),
+      ),
     );
   }
 
