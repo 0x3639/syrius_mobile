@@ -97,18 +97,20 @@ Future<dynamic> showModalBottomSheetWithBody({
     context: context,
     isScrollControlled: true,
     showDragHandle: true,
-    builder: (context) => SingleChildScrollView(
+    builder: (context) => SafeArea(
       child: Padding(
         padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom +
-              kVerticalSpacer.height!,
+          bottom: kVerticalSpacer.height!,
           left: kHorizontalPagePaddingDimension,
           right: kHorizontalPagePaddingDimension,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
           children: [
             if (title != null)
               Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     title,
