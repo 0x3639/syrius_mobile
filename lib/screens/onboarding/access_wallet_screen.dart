@@ -51,37 +51,39 @@ class _AccessWalletScreenState extends State<AccessWalletScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const Spacer(),
-            SvgIcon(
-              iconFileName: 'zn_icon',
-              iconColor: znnColor,
-              size: 72.0,
-            ),
-            const Spacer(),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                OutlinedButton(
-                  onPressed: () {
-                    showImportWalletScreen(context);
-                  },
-                  child: Text(AppLocalizations.of(context)!.importWallet),
-                ),
-                kVerticalSpacer,
-                SyriusFilledButton(
-                  text: AppLocalizations.of(context)!.createWallet,
-                  onPressed: () {
-                    showCreatePincodeScreen(context: context);
-                  },
-                ),
-              ],
-            ),
-          ],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Spacer(),
+              SvgIcon(
+                iconFileName: 'zn_icon',
+                iconColor: znnColor,
+                size: 72.0,
+              ),
+              const Spacer(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  OutlinedButton(
+                    onPressed: () {
+                      showImportWalletScreen(context);
+                    },
+                    child: Text(AppLocalizations.of(context)!.importWallet),
+                  ),
+                  kVerticalSpacer,
+                  SyriusFilledButton(
+                    text: AppLocalizations.of(context)!.createWallet,
+                    onPressed: () {
+                      showCreatePincodeScreen(context: context);
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
