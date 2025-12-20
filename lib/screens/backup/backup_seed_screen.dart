@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/main.dart';
 import 'package:syrius_mobile/screens/screens.dart';
 import 'package:syrius_mobile/utils/utils.dart';

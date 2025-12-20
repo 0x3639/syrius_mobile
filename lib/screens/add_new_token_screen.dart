@@ -1,11 +1,11 @@
 import 'package:drift/drift.dart' hide Column;
 import 'package:flutter/material.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/blocs/blocs.dart';
 import 'package:syrius_mobile/blocs/tokens/add_token_bloc.dart';
 import 'package:syrius_mobile/database/app_network_asset_entries.dart';
 import 'package:syrius_mobile/database/database.dart';
 import 'package:syrius_mobile/database/extensions.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/main.dart';
 import 'package:syrius_mobile/utils/utils.dart';
 import 'package:syrius_mobile/widgets/reusable_widgets/text_form_fields/new_token_symbol_text_field.dart';

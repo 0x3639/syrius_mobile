@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/blocs/buy/unwrap_signed_requests_bloc.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/screens/buy_stepper_screen.dart';
 import 'package:syrius_mobile/screens/unwrap_signed_requests_screen.dart';
 

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/screens/screens.dart';
 import 'package:syrius_mobile/utils/utils.dart';
 import 'package:syrius_mobile/widgets/widgets.dart';

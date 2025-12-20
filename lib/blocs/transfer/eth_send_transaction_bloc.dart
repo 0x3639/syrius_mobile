@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/blocs/blocs.dart';
 import 'package:syrius_mobile/eth_support/ethereum_service.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/main.dart';
 import 'package:syrius_mobile/screens/settings/otp/otp_code_confirmation.dart';
 import 'package:syrius_mobile/utils/utils.dart';

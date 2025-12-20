@@ -1,7 +1,7 @@
 import 'package:animate_gradient/animate_gradient.dart';
 import 'package:flutter/material.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/model/model.dart';
 import 'package:syrius_mobile/utils/utils.dart';
 import 'package:syrius_mobile/widgets/reusable_widgets/shape_toggle_widget.dart';

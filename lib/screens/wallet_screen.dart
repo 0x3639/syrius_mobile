@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:syrius_mobile/blocs/blocs.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/main.dart';
 import 'package:syrius_mobile/model/block_chain.dart';
 import 'package:syrius_mobile/utils/notifiers/backed_up_seed_notifier.dart';

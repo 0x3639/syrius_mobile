@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/utils/utils.dart';
 import 'package:syrius_mobile/widgets/widgets.dart';
 import 'package:znn_sdk_dart/znn_sdk_dart.dart';

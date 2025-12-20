@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:logging/logging.dart';
 import 'package:syrius_mobile/blocs/transfer/send_payment_bloc.dart';
+import 'package:syrius_mobile/l10n/app_localizations.dart';
 import 'package:syrius_mobile/main.dart';
 import 'package:syrius_mobile/services/i_web3wallet_service.dart';
 import 'package:syrius_mobile/utils/utils.dart';
