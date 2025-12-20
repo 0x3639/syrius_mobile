@@ -6,6 +6,8 @@ import 'package:syrius_mobile/utils/utils.dart';
 import 'package:syrius_mobile/widgets/widgets.dart';
 import 'package:znn_sdk_dart/znn_sdk_dart.dart';
 
+
+// TODO: the texts need to be localized
 class AcceleratorProjectListItem extends StatefulWidget {
   final AcceleratorProject acceleratorProject;
   final PillarInfo? pillarInfo;
@@ -202,7 +204,7 @@ class _AcceleratorProjectListItemState
       tags.add(
         Chip(
           label: const Text('Phase needs voting'),
-          backgroundColor: znnColor.withAlpha((255.0 * 0.7).round()),
+          backgroundColor: qsrColor.withAlpha((255.0 * 0.7).round()),
         ),
       );
     }
@@ -226,9 +228,9 @@ class _AcceleratorProjectListItemState
       );
     }
     if (widget.acceleratorProject.status == AcceleratorProjectStatus.active) {
-      return const Chip(
-        label: Text('Accepted'),
-        backgroundColor: znnColor,
+      return Chip(
+        label: const Text('Accepted'),
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       );
     }
     if (widget.acceleratorProject.status == AcceleratorProjectStatus.voting) {
