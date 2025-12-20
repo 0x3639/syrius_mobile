@@ -17,25 +17,22 @@ class _AcceleratorZScreenState extends State<AcceleratorZScreen> {
   Widget build(BuildContext context) {
     return CustomAppbarScreen(
       appbarTitle: AppLocalizations.of(context)!.az,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
-          children: <Widget>[
-            const PageCard(
-              type: PageCardType.acceleratorProjectList,
-            ),
-            const PageCard(
-              type: PageCardType.acceleratorCreateProject,
-            ),
-            const PageCard(
-              type: PageCardType.acceleratorDonate,
-            ),
-            const PageCard(
-              type: PageCardType.acceleratorStats,
-            ),
-          ].addSeparator(kVerticalSpacer),
-        ),
+      child: ListView(
+        physics: const BouncingScrollPhysics(),
+        children: <Widget>[
+          const PageCard(
+            type: PageCardType.acceleratorProjectList,
+          ),
+          const PageCard(
+            type: PageCardType.acceleratorCreateProject,
+          ),
+          const PageCard(
+            type: PageCardType.acceleratorDonate,
+          ),
+          const PageCard(
+            type: PageCardType.acceleratorStats,
+          ),
+        ].addSeparator(kVerticalSpacer),
       ),
     );
   }
