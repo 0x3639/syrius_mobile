@@ -43,8 +43,8 @@ Future showModalBottomSheetWithButtons({
         child: Padding(
           padding: EdgeInsets.only(
             bottom: kVerticalSpacer.height!,
-            left: 24.0,
-            right: 24.0,
+            left: kHorizontalPagePaddingDimension,
+            right: kHorizontalPagePaddingDimension,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
