@@ -48,6 +48,7 @@ class CustomAppbarScreen extends StatelessWidget {
           padding: EdgeInsets.only(
             left: withLateralPadding ? kHorizontalPagePaddingDimension : 0.0,
             right: withLateralPadding ? kHorizontalPagePaddingDimension : 0.0,
+            bottom: withBottomPadding ? kHorizontalPagePaddingDimension : 0.0,
           ),
           child: child,
         ),
