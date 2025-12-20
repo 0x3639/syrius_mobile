@@ -22,7 +22,6 @@ Future showModalBottomSheetWithButtons({
   return showModalBottomSheet(
     context: context,
     isDismissible: isDismissible,
-    isScrollControlled: true,
     showDragHandle: true,
     builder: (_) {
       final Widget? firstButton = btn1Text.isEmpty
@@ -40,7 +39,7 @@ Future showModalBottomSheetWithButtons({
               onPressed: btn2Action,
             );
 
-      return SingleChildScrollView(
+      return SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
             bottom: kVerticalSpacer.height!,
@@ -49,6 +48,7 @@ Future showModalBottomSheetWithButtons({
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 title,
