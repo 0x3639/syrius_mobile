@@ -115,7 +115,7 @@ final AppNetworksCompanion kSepoliaNetwork = AppNetworksCompanion.insert(
   chainId: const Value(11155111),
   currencySymbol: 'sETH',
   name: 'Sepolia',
-  url: 'https://rpc.sepolia.org',
+  url: 'https://ethereum-sepolia-rpc.publicnode.com',
   type: NetworkType.testnet,
 );
 final AppNetworksCompanion kSupernovaNetwork = AppNetworksCompanion.insert(
