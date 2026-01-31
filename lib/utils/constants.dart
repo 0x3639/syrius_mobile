@@ -46,7 +46,7 @@ const String kWcProjectId = '6106aa8c2f308b338f31465bef999a1f';
 const String kZenonNameSpace = 'zenon';
 
 // API endpoints
-const String kPriceInfoApi = 'https://api.hc1.tools/price';
+const String kPriceInfoApi = 'https://api.zenon.info/price';
 const String kZenonToolsPillarsEndpoint = 'https://api.zenon.tools/pillars';
 
 // Links
