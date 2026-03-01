@@ -212,8 +212,7 @@ class _ActivateBiometryScreenState extends State<ActivateBiometryScreen> {
       btn1Text: AppLocalizations.of(context)!.continueButton,
       btn1Action: () {
         Navigator.pop(context);
-
-        // TODO: open security system settings
+        openSecuritySettings();
       },
     );
   }
