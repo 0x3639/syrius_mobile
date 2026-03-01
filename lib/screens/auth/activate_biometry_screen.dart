@@ -144,11 +144,30 @@ class _ActivateBiometryScreenState extends State<ActivateBiometryScreen> {
             )) {
               if (!mounted) return;
               showLoadingDialog(context);
-              final AuthenticationService authenticationService =
-                  AuthenticationService();
-              await authenticationService.encryptPinWithBiometry(widget.pin);
-              await _saveEncryptWalletWithBiometryValue();
-              _navigate();
+              try {
+                final AuthenticationService authenticationService =
+                    AuthenticationService();
+                await authenticationService.encryptPinWithBiometry(widget.pin);
+                await _saveEncryptWalletWithBiometryValue();
+                _navigate();
+              } on Exception catch (e, stackTrace) {
+                Logger('ActivateBiometryScreen').log(
+                  Level.SEVERE,
+                  'encryptPinWithBiometry',
+                  e,
+                  stackTrace,
+                );
+                if (mounted) {
+                  clearLoadingDialog(context);
+                  sendNotificationError(
+                    AppLocalizations.of(context)!.authenticationFailed,
+                    e,
+                  );
+                  setState(() {
+                    _encryptWalletWithBiometry = false;
+                  });
+                }
+              }
             } else {
               setState(() {
                 _encryptWalletWithBiometry = false;
